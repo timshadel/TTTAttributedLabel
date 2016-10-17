@@ -1483,7 +1483,8 @@ afterInheritingLabelAttributesAndConfiguringWithBlock:(NSMutableAttributedString
     if (self.activeLink) {
         UITouch *touch = [touches anyObject];
 
-        if (self.activeLink != [self linkAtPoint:[touch locationInView:self]]) {
+        TTTAttributedLabelLink *linkAtPoint = [self linkAtPoint:[touch locationInView:self]];
+        if (self.activeLink.result.URL != linkAtPoint.result.URL) {
             self.activeLink = nil;
         }
     } else {
